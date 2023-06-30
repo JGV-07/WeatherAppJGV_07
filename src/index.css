@@ -1,0 +1,14 @@
+body {
+  background: radial-gradient(circle at center, #D5F3FF, #51B4E8)
+}
+
+.container {
+  background-color: white ;
+  /* linear-gradient(#E5F2FF at 0%, #D5F3FF at 97.4% ); */
+  border-radius: 4,85 / 0px, 4,85;
+  box-shadow: rgba(0, 0, 0, 0.25);
+  height: 10rem;
+  width: 30rem;
+  margin: auto;
+  text-align: left;
+}
