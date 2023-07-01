@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div className="header">
-        <h1 className='title'>Titulo del weather</h1>
+        <h1 className='title'>Weather app</h1>
         <button className='buttonDarkMode'>Dark Mode</button>
       </div>
       <div className='container'>
