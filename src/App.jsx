@@ -5,8 +5,10 @@ function App() {
 
   return (
     <>
-      <h1 className='title'>Titulo del weather</h1>
-      <button className='buttonDarkMode'>Dark Mode</button>
+      <div className="header">
+        <h1 className='title'>Titulo del weather</h1>
+        <button className='buttonDarkMode'>Dark Mode</button>
+      </div>
       <div className='container'>
         Temperatura en grados centigrados,
         Pais, 
@@ -14,7 +16,7 @@ function App() {
         Icono que describa el clima,
         Icono que corresponda al clima.
       </div>
-      <button className='buttonch'>Boton para cambiar de F a C</button>
+      <button className='buttonCh'>Boton para cambiar de F a C</button>
     </>
   )
 }
