@@ -1,18 +1,28 @@
 /* HACER EL ROOT CON LAS VARIABLES Y ORGANIZARLO MEJOR */
 :root {
   /* Colors */
-  --light-color: radial-gradient(circle at center, #D5F3FF 0%, #51B4E8 100%);
-  --dark-color: radial-gradient(circle at center, #53388F 0%, #2f2958 100%);
+  --light-color: radial-gradient( #D5F3FF, #51B4E8 );
+  --dark-color: radial-gradient( #53388F, #2f2958 );
   --container-light-color: hsl(0, 0%, 90%); 
-  --text-color-light: hsl(0, 0%, 20%);
+  --text-color-light: #026EED;
   --text-color-dark: hsl(0, 0%, 90%);
+  --text-title-color: #FFFFFF;
   
   /* Font weight and typography */
   --font-family: 'Lato', sans-serif;
-  --big-font: 700;
-  --font-medium: 400;
+  --font-size: 22px;
+  --temp--size: 4rem;
+  --big-font: 2rem;
+  --medium-font: 1.5rem;
+  --normal-font: 1rem;
+  --small-font: .8rem;
+  --tiny-font: .75rem;
+
+  /* Font weight */
+  --font-tiny: 100;
   --font-normal: 300;
-  --small-font: .100;
+  --font-medium: 400;
+  --font-bold: 700;
 
   /* Margins */
   --sp-0-25: .25rem;
@@ -25,9 +35,6 @@
   --sp-3: 3rem;
   --sp-4: 4rem;
   --sp-5: 5rem; 
-  --sp-height: 15rem;
-  --sp-bg: 18rem;
-  --sp-width: 20rem;
 }
 
 
@@ -49,16 +56,9 @@ html {
 body {
   background: var(--light-color);
   color: var(--text-color-light);
+  font-family: var(--font-family);
 }
 
-.dark-mode{
-  background: var(--dark-color);
-  color: var(--text-color-dark);
-}
-
-/* .dark-mode{
-  background: linear-gradient(#5836B3 0%, #5936B4 0.01%, #362A84 100%);
-} */
 
 .header{
   display: flex;
@@ -69,37 +69,58 @@ body {
 .title{ 
   display: flex;
   justify-content: left;
-  font-size: 16px;
+  font-size: var(--font-size);
+  font-weight: var(--font-medium);
+  color: var(--text-title-color);
 }
 
 .container {
-  background: linear-gradient(#E5F2FF 0%, #D5F3FF 97,4%) ;
-  box-shadow: rgba(0, 0, 0, 0.25);
-  /* linear-gradient(#E5F2FF at 0%, #D5F3FF at 97.4% ); */
-  border-radius: 4,85;
-  offset: 0px, 4,85;
-  box-shadow: rgba(0, 0, 0, 0.25);
+  background: linear-gradient(#E5F2FF, #D5F3FF);
+  box-shadow: 2px 2px 8px  rgba(2, 2, 2, 0.2);
   height: 15rem;
-  width: 20rem;
+  width: 22rem;
   margin: auto;
   text-align: left;
-  padding: 1rem;
+  padding: .75rem;
   margin-top: 7rem;
   position: relative;
-  
+  border-radius: 65px 65px / 65px 65px;
+}
+
+.temperature{
+  font-weight: var(--font-normal);
+  font-size: var(--temp--size);
+}
+
+.text{
+  font-weight: var(--font-normal);
+  font-size: var(--small-font);
+  text-transform: uppercase;
+}
+
+.text-footer-container{
+  font-weight: var(--font-normal);
+}
+
+.text-footer-container{
+  text-transform: uppercase;
+}
+
+.city-country{
+  font-weight: var(--font-medium);
 }
 
 .container-country{
   display: flex;
   justify-content: space-between;
-  margin-top: 4rem;
+  margin-top: 1.5rem;
   text-align: center;
 }
 
 .image{
- position: absolute;
- top: 0;
- right: -1rem;
+  position: absolute;
+  top: 0;
+ right: -.5rem;
  transform: translateY(-30%);
 }
 
@@ -109,20 +130,47 @@ body {
   text-align: center;
   margin-top: 5rem;
   border-radius: 4.85px;
-  box-shadow: rgba(0, 0, 0, 0.25);
   height: 38px;
   width: 120px;
+  background:#38A0D8;
+  color: white;
+  font-family:  var(--font-family);
+  box-shadow: 2px 2px 8px  rgba(2, 2, 2, 0.2);
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 .bx {
-  background: white;
+  color: var(--dark-color);
 }
+
+/* DARKMODE */
+.dark-mode{
+  background: var(--dark-color);
+  color: var(--text-color-dark);
+}
+
+.dark-mode .container{
+  background: linear-gradient(#583683, #593684, #362A84);
+}
+
+.dark-mode .buttonCh{
+  background:#7D69F1;
+}
+
+/* .dark-mode{
+  background: linear-gradient(#5836B3 0%, #5936B4 0.01%, #362A84 100%);
+} */
+
 
 /* BREAKPOINTS */
 
 /* Falta este breakpoint */
 @media screen and (min-width: 993px ){
-
+  
 }
 
 
@@ -142,22 +190,13 @@ body {
   }
   
   .container {
-    background-color: rgb(255, 255, 255) ;
-  /* linear-gradient(#E5F2FF at 0%, #D5F3FF at 97.4% ); */ 
-    border-radius: 4,85 / 0px, 4,85;
-    box-shadow: rgba(0, 0, 0, 0.25);
     height: 15rem;
     width: 30rem;
-    margin: auto;
-    text-align: left;
     padding: 1rem;
-    margin-top: 8rem;
+    margin-top: 5rem;
   }
   
   .buttonCh{
-    display: block;
-    margin: 0 auto;
-    text-align: center;
     margin-top: 3rem;
     height: 38;
     width: 178;
