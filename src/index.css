@@ -1,8 +1,21 @@
 /* HACER EL ROOT CON LAS VARIABLES Y ORGANIZARLO MEJOR */
+:root{
+ --font-size: 16px;
+}
 
 body {
-  background: radial-gradient(circle at center, #D5F3FF, #51B4E8)
+  background: radial-gradient(circle at center, #D5F3FF 0%, #51B4E8 100%);
+  color: black;
 }
+
+.dark-mode{
+  background: radial-gradient(circle at center, #53388F 0%, #2f2958 100%);
+  color: white;
+}
+
+/* .dark-mode{
+  background: linear-gradient(#5836B3 0%, #5936B4 0.01%, #362A84 100%);
+} */
 
 .header{
   display: flex;
@@ -19,7 +32,8 @@ body {
 .container {
   background-color: rgb(255, 255, 255) ;
   /* linear-gradient(#E5F2FF at 0%, #D5F3FF at 97.4% ); */
-  border-radius: 4,85 / 0px, 4,85;
+  border-radius: 4,85;
+  offset: 0px, 4,85;
   box-shadow: rgba(0, 0, 0, 0.25);
   height: 10rem;
   width: 15rem;
@@ -34,6 +48,7 @@ body {
   margin: 0 auto;
   text-align: center;
   margin-top: 5rem;
+  border-radius: 3rem;
 }
 
 /* BREAKPOINTS */
