@@ -1,16 +1,59 @@
 /* HACER EL ROOT CON LAS VARIABLES Y ORGANIZARLO MEJOR */
-:root{
- --font-size: 16px;
+:root {
+  /* Colors */
+  --light-color: radial-gradient(circle at center, #D5F3FF 0%, #51B4E8 100%);
+  --dark-color: radial-gradient(circle at center, #53388F 0%, #2f2958 100%);
+  --container-light-color: hsl(0, 0%, 90%); 
+  --text-color-light: hsl(0, 0%, 20%);
+  --text-color-dark: hsl(0, 0%, 90%);
+  
+  /* Font weight and typography */
+  --font-family: 'Lato', sans-serif;
+  --big-font: 700;
+  --font-medium: 400;
+  --font-normal: 300;
+  --small-font: .100;
+
+  /* Margins */
+  --sp-0-25: .25rem;
+  --sp-0-5: .5rem;
+  --sp-0-75: .75rem;
+  --sp-1: 1rem;
+  --sp-1-5: 1.5rem;
+  --sp-2: 2rem;
+  --sp-2-5: 2.5rem;
+  --sp-3: 3rem;
+  --sp-4: 4rem;
+  --sp-5: 5rem; 
+  --sp-height: 15rem;
+  --sp-bg: 18rem;
+  --sp-width: 20rem;
+}
+
+
+/* BASE */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  background: radial-gradient(circle at center, #D5F3FF 0%, #51B4E8 100%);
-  color: black;
+  background: var(--light-color);
+  color: var(--text-color-light);
 }
 
 .dark-mode{
-  background: radial-gradient(circle at center, #53388F 0%, #2f2958 100%);
-  color: white;
+  background: var(--dark-color);
+  color: var(--text-color-dark);
 }
 
 /* .dark-mode{
@@ -30,17 +73,34 @@ body {
 }
 
 .container {
-  background-color: rgb(255, 255, 255) ;
+  background: linear-gradient(#E5F2FF 0%, #D5F3FF 97,4%) ;
+  box-shadow: rgba(0, 0, 0, 0.25);
   /* linear-gradient(#E5F2FF at 0%, #D5F3FF at 97.4% ); */
   border-radius: 4,85;
   offset: 0px, 4,85;
   box-shadow: rgba(0, 0, 0, 0.25);
-  height: 10rem;
-  width: 15rem;
+  height: 15rem;
+  width: 20rem;
   margin: auto;
   text-align: left;
   padding: 1rem;
   margin-top: 7rem;
+  position: relative;
+  
+}
+
+.container-country{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.image{
+ position: absolute;
+ top: 0;
+ right: -1rem;
+ transform: translateY(-30%);
 }
 
 .buttonCh{
@@ -48,7 +108,14 @@ body {
   margin: 0 auto;
   text-align: center;
   margin-top: 5rem;
-  border-radius: 3rem;
+  border-radius: 4.85px;
+  box-shadow: rgba(0, 0, 0, 0.25);
+  height: 38px;
+  width: 120px;
+}
+
+.bx {
+  background: white;
 }
 
 /* BREAKPOINTS */
@@ -79,7 +146,7 @@ body {
   /* linear-gradient(#E5F2FF at 0%, #D5F3FF at 97.4% ); */ 
     border-radius: 4,85 / 0px, 4,85;
     box-shadow: rgba(0, 0, 0, 0.25);
-    height: 10rem;
+    height: 15rem;
     width: 30rem;
     margin: auto;
     text-align: left;
@@ -88,10 +155,12 @@ body {
   }
   
   .buttonCh{
-    display: flex;
+    display: block;
     margin: 0 auto;
     text-align: center;
     margin-top: 3rem;
+    height: 38;
+    width: 178;
   }
 }
 
