@@ -7,11 +7,14 @@
   --text-color-light: #026EED;
   --text-color-dark: hsl(0, 0%, 90%);
   --text-title-color: #FFFFFF;
+  --text-color: #56A5F1;
+  --text-color-darkmode: #d5f3ffc3;
   
   /* Font weight and typography */
   --font-family: 'Lato', sans-serif;
   --font-size: 22px;
   --temp--size: 4rem;
+  --temp2-size: 2.5rem;
   --big-font: 2rem;
   --medium-font: 1.5rem;
   --normal-font: 1rem;
@@ -57,6 +60,8 @@ body {
   background: var(--light-color);
   color: var(--text-color-light);
   font-family: var(--font-family);
+  width: 100%;
+  height: 100vh;
 }
 
 
@@ -67,24 +72,23 @@ body {
 }
 
 .title{ 
-  display: flex;
-  justify-content: left;
   font-size: var(--font-size);
   font-weight: var(--font-medium);
   color: var(--text-title-color);
 }
 
+
 .container {
   background: linear-gradient(#E5F2FF, #D5F3FF);
   box-shadow: 2px 2px 8px  rgba(2, 2, 2, 0.2);
-  height: 15rem;
+  height: 14rem;
   width: 22rem;
   margin: auto;
   text-align: left;
   padding: .75rem;
   margin-top: 7rem;
   position: relative;
-  border-radius: 65px 65px / 65px 65px;
+  border-radius: 65px
 }
 
 .temperature{
@@ -95,32 +99,33 @@ body {
 .text{
   font-weight: var(--font-normal);
   font-size: var(--small-font);
-  text-transform: uppercase;
+  color: var(--text-color);
 }
 
 .text-footer-container{
   font-weight: var(--font-normal);
-}
-
-.text-footer-container{
+  margin: auto;
+  margin-right: .5rem;
+  color: var(--text-color);
   text-transform: uppercase;
 }
 
 .city-country{
+  font-size: var(--font-size);
   font-weight: var(--font-medium);
+  margin-left: .7rem;
 }
 
 .container-country{
   display: flex;
   justify-content: space-between;
-  margin-top: 1.5rem;
   text-align: center;
 }
 
 .image{
   position: absolute;
   top: 0;
- right: -.5rem;
+  right: -.5rem;
  transform: translateY(-30%);
 }
 
@@ -151,6 +156,8 @@ body {
 .dark-mode{
   background: var(--dark-color);
   color: var(--text-color-dark);
+  width: 100%;
+  height: 100vh;
 }
 
 .dark-mode .container{
@@ -161,34 +168,139 @@ body {
   background:#7D69F1;
 }
 
-/* .dark-mode{
-  background: linear-gradient(#5836B3 0%, #5936B4 0.01%, #362A84 100%);
-} */
+.dark-mode .text-footer-container,
+.dark-mode .text {
+  color: var(--text-color-darkmode);
+}
 
+/* LOADER */
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader{
+  background: var(--light-color);
+  z-index: 100;
+  position: fixed; 
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* BREAKPOINTS */
 
 /* Falta este breakpoint */
-@media screen and (min-width: 993px ){
-  
-}
-
-
-@media screen and (min-width: 1080px ){
-
+@media screen and (min-width: 768px ){
   
   .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .title{ 
-    display: flex;
-    justify-content: left;
-    font-size: 16px;
+    font-size: var(--big-font);
+    margin-left: 3rem;
   }
   
+  .text{
+    font-weight: var(--font-medium);
+  }
+  
+  .text-footer-container{
+    font-weight: var(--font-medium);
+  }
+
+  .buttonDarkMode{
+    margin-right: 3rem;
+  }
+
   .container {
     height: 15rem;
     width: 30rem;
@@ -198,8 +310,26 @@ body {
   
   .buttonCh{
     margin-top: 3rem;
-    height: 38;
-    width: 178;
+    height: 38px;
+    width: 178px;
   }
+
+  .container-country{
+    margin-top: .1rem;
+  }
+
+  .city-country{
+    font-size: var(--temp2-size);
+    font-weight: var(--font-medium);
+  }
+
+  .buttonCh{
+    font-size: var(--normal-font);
+  }
+}
+
+
+@media screen and (min-width: 1080px ){
+
 }
 
