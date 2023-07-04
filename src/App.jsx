@@ -46,7 +46,7 @@ useEffect (() =>{
   navigator.geolocation.getCurrentPosition((position) => {
     const latitude = position.coords.latitude
     const longitude = position.coords.longitude
-          
+   /*  (`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=4929ea72ba6ebbcdc42ee03f8228b265`) */
     axios
     .get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=4929ea72ba6ebbcdc42ee03f8228b265`)
     .then((resp) => {

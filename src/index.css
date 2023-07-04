@@ -111,7 +111,7 @@ body {
   margin: auto;
   color: var(--text-color);
   text-transform: uppercase;
-  max-width: 50px;
+  max-width: 125px;
 }
 
 .city-country{
@@ -124,6 +124,7 @@ body {
   display: flex;
   justify-content: space-between;
   text-align: center;
+  max-width: 400px;
 }
 
 .image{
@@ -343,15 +344,15 @@ body {
     padding: var(--sp-1);
     margin-top: 5rem;
   }
+
+  .container-country{
+    max-width: 500px;
+  }
   
   .buttonCh{
     margin-top: var(--sp-3);
     height: 38px;
     width: 178px;
-  }
-
-  .container-country{
-    margin-top: .1rem;
   }
 
   .city-country{
