@@ -1,19 +1,23 @@
-/* HACER EL ROOT CON LAS VARIABLES Y ORGANIZARLO MEJOR */
+
 :root {
   /* Colors */
   --light-color: radial-gradient( #D5F3FF, #51B4E8 );
   --dark-color: radial-gradient( #53388F, #2f2958 );
+  --dark-mode-container: linear-gradient(#583683, #593684, #362A84);
   --container-light-color: hsl(0, 0%, 90%); 
   --text-color-light: #026EED;
   --text-color-dark: hsl(0, 0%, 90%);
   --text-title-color: #FFFFFF;
   --text-color: #56A5F1;
   --text-color-darkmode: #d5f3ffc3;
+  --shadow: 2px 2px 8px  rgba(2, 2, 2, 0.2);
+  --button-day-color: #38A0D8;
+  --button-dark-color: #7D69F1;
   
   /* Font weight and typography */
   --font-family: 'Lato', sans-serif;
   --font-size: 22px;
-  --temp--size: 4rem;
+  --temp--size: 3.5rem;
   --temp2-size: 2.5rem;
   --big-font: 2rem;
   --medium-font: 1.5rem;
@@ -68,7 +72,7 @@ body {
 .header{
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: var(--sp-1);
 }
 
 .title{ 
@@ -80,15 +84,15 @@ body {
 
 .container {
   background: linear-gradient(#E5F2FF, #D5F3FF);
-  box-shadow: 2px 2px 8px  rgba(2, 2, 2, 0.2);
+  box-shadow: var(--shadow);
   height: 14rem;
   width: 22rem;
   margin: auto;
   text-align: left;
-  padding: .75rem;
+  padding: var(--sp-0-75);
   margin-top: 7rem;
   position: relative;
-  border-radius: 65px
+  border-radius: 65px;
 }
 
 .temperature{
@@ -105,15 +109,15 @@ body {
 .text-footer-container{
   font-weight: var(--font-normal);
   margin: auto;
-  margin-right: .5rem;
   color: var(--text-color);
   text-transform: uppercase;
+  max-width: 50px;
 }
 
 .city-country{
   font-size: var(--font-size);
   font-weight: var(--font-medium);
-  margin-left: .7rem;
+  margin: auto;
 }
 
 .container-country{
@@ -125,27 +129,54 @@ body {
 .image{
   position: absolute;
   top: 0;
-  right: -.5rem;
- transform: translateY(-30%);
+  right: -.3rem;
+  transform: translateY(-30%);
+  max-width: 150px;
 }
 
 .buttonCh{
   display: block;
   margin: 0 auto;
   text-align: center;
-  margin-top: 5rem;
-  border-radius: 4.85px;
+  margin-top: var(--sp-5);
   height: 38px;
   width: 120px;
-  background:#38A0D8;
-  color: white;
+  background: var(--button-day-color);
+  color: var(--text-title-color);
   font-family:  var(--font-family);
-  box-shadow: 2px 2px 8px  rgba(2, 2, 2, 0.2);
+  box-shadow: var(--shadow);
   align-items: center;
   border-radius: 10px;
   cursor: pointer;
   border: none;
   outline: none;
+}
+
+.buttonCh {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.buttonCh:hover {
+  color: var(--text-title-color);
+}
+.buttonCh::after {
+  content: "";
+  background: var(--button-dark-color);
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.3s ease;
+}
+.buttonCh:hover::after {
+  transition: all 0.3s ease-out;
+  transform: skewX(-45deg) scale(1, 1);
 }
 
 .bx {
@@ -161,17 +192,23 @@ body {
 }
 
 .dark-mode .container{
-  background: linear-gradient(#583683, #593684, #362A84);
+  background: var(--dark-mode-container);
 }
 
 .dark-mode .buttonCh{
-  background:#7D69F1;
+  background: var(--button-dark-color);
 }
 
 .dark-mode .text-footer-container,
 .dark-mode .text {
   color: var(--text-color-darkmode);
 }
+
+.dark-mode .buttonCh::after{
+  background: var(--button-day-color) ;
+}
+
+
 
 /* LOADER */
 
@@ -261,7 +298,7 @@ body {
 }
 
 .loader{
-  background: var(--light-color);
+  background: #51B4E8;
   z-index: 100;
   position: fixed; 
   top: 0;
@@ -275,7 +312,6 @@ body {
 
 /* BREAKPOINTS */
 
-/* Falta este breakpoint */
 @media screen and (min-width: 768px ){
   
   .header{
@@ -298,18 +334,18 @@ body {
   }
 
   .buttonDarkMode{
-    margin-right: 3rem;
+    margin-right: var(--sp-3);
   }
 
   .container {
     height: 15rem;
     width: 30rem;
-    padding: 1rem;
+    padding: var(--sp-1);
     margin-top: 5rem;
   }
   
   .buttonCh{
-    margin-top: 3rem;
+    margin-top: var(--sp-3);
     height: 38px;
     width: 178px;
   }
@@ -326,10 +362,11 @@ body {
   .buttonCh{
     font-size: var(--normal-font);
   }
-}
 
-
-@media screen and (min-width: 1080px ){
-
+  .image{
+    right: -.7rem;
+    max-width: 200px;
+  }
+  
 }
 
